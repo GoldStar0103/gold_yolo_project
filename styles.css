@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap');
 
 :root {
-  --primary: #4f5ef7;
-  --secondary: #6a82fb;
-  --accent: #ff6bcb;
-  --bg: #f4f6fb;
+  --primary: #5a6bff;
+  --secondary: #7c9aff;
+  --accent: #ff4fd8;
+  --bg: #f8faff;
   --white: #fff;
   --gray: #e0e0e0;
-  --text: #222;
-  --radius: 20px;
-  --glass-bg: rgba(255,255,255,0.25);
-  --glass-blur: blur(12px);
-  --shadow: 0 8px 32px rgba(79, 94, 247, 0.18);
+  --text: #181b2c;
+  --radius: 24px;
+  --glass-bg: rgba(255,255,255,0.35);
+  --glass-blur: blur(16px);
+  --shadow: 0 8px 32px rgba(90, 107, 255, 0.22);
+}
+
+html {
+  font-size: 20px;
 }
 
 * {
@@ -22,16 +26,17 @@
 
 body {
   font-family: 'Montserrat', Arial, sans-serif;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f4f6fb 100%);
+  background: linear-gradient(135deg, #e6edff 0%, var(--bg) 100%);
   color: var(--text);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 40px;
+  padding: 32px 56px;
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   color: var(--white);
   position: sticky;
@@ -42,22 +47,22 @@ header {
 
 .logo {
   font-weight: bold;
-  font-size: 1.4rem;
-  letter-spacing: 2px;
+  font-size: 2rem;
+  letter-spacing: 2.5px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 nav ul {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   list-style: none;
 }
 
 nav a {
   color: var(--white);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.25rem;
   transition: color 0.2s, text-shadow 0.2s;
   text-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
@@ -72,7 +77,7 @@ nav a:hover {
   background: none;
   border: none;
   color: var(--white);
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
 }
 
@@ -80,75 +85,84 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 70px 40px 60px 40px;
+  padding: 90px 56px 80px 56px;
   background: linear-gradient(120deg, var(--primary) 60%, var(--secondary) 100%);
   color: var(--white);
   border-radius: var(--radius);
-  margin: 40px auto 0 auto;
-  max-width: 1100px;
+  margin: 48px auto 0 auto;
+  max-width: 1200px;
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
+  animation: gradientBG 8s ease-in-out infinite alternate;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .hero::before {
   content: '';
   position: absolute;
   top: -80px; right: -80px;
-  width: 300px; height: 300px;
+  width: 340px; height: 340px;
   background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-  opacity: 0.18;
+  opacity: 0.22;
   z-index: 0;
+  pointer-events: none;
 }
 
 .hero-content {
-  max-width: 500px;
+  max-width: 600px;
   position: relative;
   z-index: 1;
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 18px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 3.2rem;
+  margin-bottom: 24px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
   text-shadow: 0 4px 24px var(--secondary);
   animation: fadeInUp 1s;
 }
 
 .hero-content p {
-  font-size: 1.15rem;
-  margin-bottom: 28px;
-  opacity: 0.95;
+  font-size: 1.5rem;
+  margin-bottom: 36px;
+  opacity: 0.97;
   animation: fadeInUp 1.2s;
 }
 
 .btn {
   display: inline-block;
-  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+  background-size: 200% 200%;
   color: var(--white);
-  padding: 14px 38px;
-  border-radius: 32px;
+  padding: 18px 48px;
+  border-radius: 40px;
   font-weight: bold;
   text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 24px var(--accent);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 32px var(--accent), 0 0 24px 4px var(--accent);
+  transition: background 0.3s, color 0.2s, box-shadow 0.2s, transform 0.2s;
   border: none;
   outline: none;
   animation: fadeInUp 1.4s;
 }
 
 .btn:hover {
-  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  background-position: 100% 0;
   color: var(--white);
-  box-shadow: 0 8px 32px var(--accent);
-  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 40px var(--accent), 0 0 40px 12px var(--accent);
+  transform: translateY(-2px) scale(1.09);
+  filter: brightness(1.12);
 }
 
 .hero-image {
-  width: 260px;
-  height: 260px;
+  width: 320px;
+  height: 320px;
   background: var(--glass-bg);
   border-radius: var(--radius);
   display: flex;
@@ -156,6 +170,7 @@ nav a:hover {
   justify-content: center;
   box-shadow: var(--shadow);
   backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   position: relative;
   z-index: 1;
   animation: float 3s ease-in-out infinite;
@@ -163,28 +178,29 @@ nav a:hover {
 
 @keyframes float {
   0%, 100% { transform: translateY(0);}
-  50% { transform: translateY(-16px);}
+  50% { transform: translateY(-20px);}
 }
 
 .camera-icon {
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--gray);
-  border-radius: 16px;
+  width: 110px;
+  height: 110px;
+  border: 3px solid var(--gray);
+  border-radius: 20px;
   position: relative;
-  background: rgba(255,255,255,0.12);
-  box-shadow: 0 2px 12px var(--secondary);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 2px 16px var(--secondary), 0 0 24px 4px var(--accent);
   animation: float 2.5s ease-in-out infinite;
+  transition: box-shadow 0.3s;
 }
 .camera-icon::before {
   content: '';
   display: block;
   position: absolute;
   left: 50%; top: 50%;
-  width: 36px; height: 20px;
+  width: 50px; height: 28px;
   background: none;
-  border: 2px solid var(--gray);
-  border-radius: 8px;
+  border: 3px solid var(--gray);
+  border-radius: 12px;
   transform: translate(-50%, -50%);
 }
 .camera-icon::after {
@@ -192,92 +208,105 @@ nav a:hover {
   display: block;
   position: absolute;
   left: 50%; top: 50%;
-  width: 12px; height: 12px;
+  width: 18px; height: 18px;
   background: none;
-  border: 2px solid var(--gray);
+  border: 3px solid var(--gray);
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
 
+.camera-icon:hover {
+  box-shadow: 0 4px 40px var(--accent), 0 0 40px 12px var(--accent);
+}
+
 .features {
-  max-width: 1100px;
-  margin: 56px auto;
-  padding: 0 40px;
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 56px;
+  position: relative;
 }
 
 .features h2 {
   text-align: center;
-  margin-bottom: 36px;
-  font-size: 2.2rem;
+  margin-bottom: 44px;
+  font-size: 2.5rem;
   color: var(--primary);
-  letter-spacing: 1px;
-  text-shadow: 0 2px 12px var(--secondary);
+  letter-spacing: 1.2px;
+  text-shadow: 0 2px 16px var(--secondary);
 }
 
 .features-list {
   display: flex;
-  gap: 36px;
+  gap: 48px;
   justify-content: center;
 }
 
 .feature {
   background: var(--glass-bg);
   border-radius: var(--radius);
-  padding: 38px 24px;
+  padding: 48px 32px;
   text-align: center;
   box-shadow: var(--shadow);
   flex: 1;
   backdrop-filter: var(--glass-blur);
-  transition: transform 0.2s, box-shadow 0.2s;
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
   position: relative;
   overflow: hidden;
 }
 
 .feature:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 32px var(--secondary);
+  transform: translateY(-10px) scale(1.07);
+  box-shadow: 0 8px 40px var(--secondary), 0 0 40px 12px var(--accent);
+  filter: brightness(1.12);
 }
 
 .feature .icon {
-  width: 54px;
-  height: 54px;
+  width: 70px;
+  height: 70px;
   background: linear-gradient(135deg, var(--secondary), var(--accent));
   border-radius: 50%;
-  margin: 0 auto 18px auto;
-  box-shadow: 0 2px 12px var(--accent);
+  margin: 0 auto 24px auto;
+  box-shadow: 0 2px 16px var(--accent), 0 0 24px 4px var(--accent);
   animation: float 2.2s ease-in-out infinite;
+  transition: box-shadow 0.3s;
+}
+
+.feature .icon:hover {
+  box-shadow: 0 4px 40px var(--accent), 0 0 40px 12px var(--accent);
 }
 
 .feature h3 {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   color: var(--primary);
-  font-size: 1.2rem;
-  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+  letter-spacing: 0.7px;
 }
 
 .feature p {
   color: #444;
-  opacity: 0.85;
+  opacity: 0.9;
+  font-size: 1.1rem;
 }
 
 .video {
-  max-width: 900px;
-  margin: 56px auto;
-  padding: 0 40px;
+  max-width: 1000px;
+  margin: 64px auto;
+  padding: 0 56px;
   text-align: center;
 }
 
 .video h2 {
   color: var(--primary);
-  margin-bottom: 28px;
-  font-size: 2rem;
-  text-shadow: 0 2px 12px var(--secondary);
+  margin-bottom: 36px;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 16px var(--secondary);
 }
 
 .video-placeholder {
   width: 100%;
-  max-width: 600px;
-  height: 300px;
+  max-width: 700px;
+  height: 340px;
   background: var(--glass-bg);
   border-radius: var(--radius);
   margin: 0 auto;
@@ -286,31 +315,34 @@ nav a:hover {
   justify-content: center;
   box-shadow: var(--shadow);
   backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  position: relative;
+  overflow: hidden;
 }
 
 .gallery {
-  max-width: 1100px;
-  margin: 56px auto;
-  padding: 0 40px;
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 56px;
 }
 
 .gallery h2 {
   color: var(--primary);
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   text-align: center;
-  font-size: 2rem;
-  text-shadow: 0 2px 12px var(--secondary);
+  font-size: 2.2rem;
+  text-shadow: 0 2px 16px var(--secondary);
 }
 
 .gallery-list {
   display: flex;
-  gap: 28px;
+  gap: 36px;
   justify-content: center;
 }
 
 .gallery-item {
-  width: 180px;
-  height: 140px;
+  width: 220px;
+  height: 170px;
   background: var(--glass-bg);
   border-radius: var(--radius);
   display: flex;
@@ -318,56 +350,63 @@ nav a:hover {
   justify-content: center;
   box-shadow: var(--shadow);
   backdrop-filter: var(--glass-blur);
-  transition: transform 0.2s, box-shadow 0.2s;
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
 .gallery-item:hover {
-  transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 8px 32px var(--accent);
+  transform: scale(1.09) rotate(-2deg);
+  box-shadow: 0 8px 40px var(--accent), 0 0 40px 12px var(--accent);
+  filter: brightness(1.12);
 }
 
 .article {
-  max-width: 900px;
-  margin: 56px auto;
-  padding: 0 40px;
+  max-width: 1000px;
+  margin: 64px auto;
+  padding: 0 56px;
   background: var(--glass-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-align: center;
   backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  position: relative;
+  overflow: hidden;
 }
 
 .article h2 {
   color: var(--primary);
-  margin-bottom: 18px;
-  font-size: 1.5rem;
-  text-shadow: 0 2px 12px var(--secondary);
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 16px var(--secondary);
 }
 
 .article p {
   color: #444;
-  opacity: 0.9;
-  font-size: 1.1rem;
+  opacity: 0.95;
+  font-size: 1.25rem;
 }
 
 .address {
-  max-width: 900px;
-  margin: 56px auto;
-  padding: 0 40px;
+  max-width: 1000px;
+  margin: 64px auto;
+  padding: 0 56px;
   text-align: center;
 }
 
 .address h2 {
   color: var(--primary);
-  margin-bottom: 18px;
-  font-size: 1.5rem;
-  text-shadow: 0 2px 12px var(--secondary);
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 16px var(--secondary);
 }
 
 .map-placeholder {
   width: 100%;
-  max-width: 400px;
-  height: 180px;
+  max-width: 500px;
+  height: 220px;
   background: var(--glass-bg);
   border-radius: var(--radius);
   margin: 0 auto;
@@ -378,23 +417,25 @@ nav a:hover {
   position: relative;
   box-shadow: var(--shadow);
   backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  overflow: hidden;
 }
 
 .map-pin {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   background: linear-gradient(135deg, var(--accent), var(--secondary));
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   position: relative;
-  box-shadow: 0 2px 12px var(--accent);
+  box-shadow: 0 2px 16px var(--accent), 0 0 24px 4px var(--accent);
 }
 .map-pin::after {
   content: '';
   position: absolute;
   left: 50%; top: 50%;
-  width: 12px; height: 12px;
+  width: 16px; height: 16px;
   background: var(--white);
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -403,16 +444,17 @@ nav a:hover {
 footer {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   color: var(--white);
-  padding: 28px 0;
+  padding: 36px 0;
   text-align: center;
-  margin-top: 56px;
+  margin-top: 64px;
   box-shadow: var(--shadow);
+  font-size: 1.2rem;
 }
 
 .footer-content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
   justify-content: center;
 }
@@ -420,9 +462,10 @@ footer {
 .footer-content a {
   color: var(--accent);
   text-decoration: underline;
-  margin: 0 8px;
-  font-weight: 500;
+  margin: 0 12px;
+  font-weight: 600;
   transition: color 0.2s;
+  font-size: 1.1rem;
 }
 
 .footer-content a:hover {
@@ -433,18 +476,19 @@ footer {
   .hero {
     flex-direction: column;
     text-align: center;
-    gap: 32px;
+    gap: 40px;
   }
   .features-list, .gallery-list {
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
   }
 }
 
 @media (max-width: 600px) {
+  html { font-size: 16px; }
   header {
     flex-direction: row;
-    padding: 16px 16px;
+    padding: 16px 12px;
   }
   nav ul {
     flex-direction: column;
@@ -452,9 +496,9 @@ footer {
     position: absolute;
     top: 64px;
     right: 0;
-    width: 180px;
+    width: 200px;
     display: none;
-    box-shadow: 0 8px 32px rgba(79, 94, 247, 0.1);
+    box-shadow: 0 8px 32px rgba(90, 107, 255, 0.18);
     border-radius: 0 0 0 var(--radius);
   }
   nav ul.open {
