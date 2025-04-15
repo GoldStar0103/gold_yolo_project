@@ -537,17 +537,6 @@ footer {
   margin-top: -2px;
 }
 
-/* Decorative SVG Blob for Hero */
-<svg class="hero-blob" width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <radialGradient id="heroGradient" cx="0.5" cy="0.5" r="0.7">
-      <stop offset="0%" stop-color="#ff4fd8" />
-      <stop offset="100%" stop-color="#5a6bff" stop-opacity="0" />
-    </radialGradient>
-  </defs>
-  <ellipse cx="210" cy="210" rx="200" ry="180" fill="url(#heroGradient)" opacity="0.35"/>
-</svg>
-
 .hero-blob {
   position: absolute;
   left: -120px;
@@ -570,24 +559,6 @@ footer {
 .icon:hover {
   box-shadow: 0 4px 40px var(--accent), 0 0 40px 12px var(--accent);
 }
-
-.icon svg {
-  display: block;
-  margin: 0 auto;
-}
-
-<div class="icon">
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-    <path d="M24 40s-14-8.6-14-19A10 10 0 0124 10a10 10 0 0114 11c0 10.4-14 19-14 19z" fill="#5a6bff" opacity="0.8"/>
-    <circle cx="24" cy="24" r="5" fill="#fff"/>
-  </svg>
-</div>
-
-<div class="svg-divider">
-  <svg viewBox="0 0 1440 100" width="100%" height="100" preserveAspectRatio="none">
-    <path d="M0,100 C480,0 960,100 1440,0 L1440,100 L0,100 Z" fill="#5a6bff" opacity="0.08"/>
-  </svg>
-</div>
 
 .icon svg, .gallery-item svg {
   display: block;
