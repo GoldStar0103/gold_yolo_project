@@ -578,3 +578,99 @@ footer {
   </svg>
 </div>
 
+.color-picker {
+  max-width: 1000px;
+  margin: 64px auto;
+  padding: 40px;
+  background: var(--glass-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.color-picker h2 {
+  color: var(--primary);
+  margin-bottom: 32px;
+  font-size: 2rem;
+  text-shadow: 0 2px 16px var(--secondary);
+}
+
+.color-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.color-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-group label {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.color-group input[type="color"] {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color-group input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.color-group input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.color-group input[type="color"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.reset-colors {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: var(--white);
+  padding: 12px 32px;
+  border: none;
+  border-radius: 32px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px var(--primary);
+}
+
+.reset-colors:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--primary);
+}
+
+@media (max-width: 600px) {
+  .color-controls {
+    gap: 16px;
+  }
+  
+  .color-group input[type="color"] {
+    width: 50px;
+    height: 50px;
+  }
+}
+
