@@ -578,20 +578,17 @@ footer {
   </svg>
 </div>
 
-/* Modern Color Picker Styles */
+/* Flat Color Picker Styles */
 .color-picker {
   max-width: 1000px;
   margin: 64px auto;
   padding: 48px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 32px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 24px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .color-picker::before {
@@ -599,8 +596,8 @@ footer {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 100%
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 100%
   );
   z-index: 0;
 }
@@ -630,15 +627,15 @@ footer {
   align-items: center;
   gap: 16px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .color-group:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .color-group label {
@@ -656,7 +653,7 @@ footer {
   border-radius: 50%;
   cursor: pointer;
   background: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -673,12 +670,12 @@ footer {
 }
 
 .color-group input[type="color"]:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .color-group input[type="color"]:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .reset-colors {
@@ -691,16 +688,16 @@ footer {
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
   letter-spacing: 0.5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .reset-colors:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   background: var(--primary);
+  border-color: transparent;
 }
 
 .reset-colors:active {
